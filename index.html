@@ -57,8 +57,19 @@
             color: var(--text-main); 
             font-size: 1.5rem; 
             margin-top: 0; 
-            margin-bottom: 30px;
+            margin-bottom: 10px; /* 縮小與小語的間距 */
             letter-spacing: 1px;
+        }
+
+        /* 移到上方的小語樣式 */
+        .quote-box {
+            margin-bottom: 25px;
+            padding: 10px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-style: italic;
+            border-bottom: 1px dashed var(--input-border);
+            display: inline-block;
         }
 
         .input-group {
@@ -90,11 +101,6 @@
             font-weight: bold;
             margin-left: 5px;
             border-bottom: 1px solid var(--accent);
-            transition: 0.2s;
-        }
-        .example-link:hover {
-            color: var(--text-main);
-            border-bottom-color: var(--text-main);
         }
 
         input[type="number"] {
@@ -118,7 +124,7 @@
             background: #f0e6e0;
             padding: 16px;
             border-radius: var(--border-round);
-            margin: 25px 0 15px 0;
+            margin: 15px 0;
             cursor: pointer;
             transition: 0.3s ease;
             border: 1px solid var(--input-border);
@@ -128,7 +134,6 @@
         .no-box-check.active {
             border-color: var(--text-main);
             background: #fff0f2;
-            transform: scale(1.02);
         }
 
         .no-box-check span { font-weight: bold; }
@@ -178,26 +183,10 @@
             transition: 0.2s;
             box-shadow: 0 4px 0 #76a0b3;
         }
-        .tool-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0 #76a0b3;
-        }
+
         .tool-link.sub-btn {
             background-color: #b0a49e;
             box-shadow: 0 4px 0 #8a7e77;
-        }
-        .tool-link.sub-btn:hover {
-            box-shadow: 0 6px 0 #8a7e77;
-        }
-
-        .quote-box {
-            margin-top: 25px;
-            padding: 15px;
-            background: rgba(143, 185, 204, 0.1);
-            border-radius: 15px;
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-style: italic;
         }
 
         .footer { 
@@ -212,6 +201,8 @@
 <div class="container">
     <div class="tape"></div>
     <h1>🐾 🐰 FF14 經驗規劃器 🐰 🐾</h1>
+    
+    <div class="quote-box" id="quote">「願水晶的指引，帶領你走向滿級之路。」</div>
 
     <div class="input-group">
         <label>目前等級:</label>
@@ -256,8 +247,6 @@
         <a href="https://tnze.yyyy.games/#/welcome" target="_blank" class="tool-link">🛠️ 打開生產模擬器</a>
         <a href="https://forum.gamer.com.tw/C.php?bsn=17608&snA=26610" target="_blank" class="tool-link sub-btn">📜 繁中服生產練級路線</a>
     </div>
-
-    <div class="quote-box" id="quote">「願水晶的指引，帶領你走向滿級之路。」</div>
 
     <div class="footer">小狗冬製作</div>
 </div>
