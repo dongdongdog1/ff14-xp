@@ -27,6 +27,13 @@
             min-height: 100vh;
             margin: 0;
             padding: 20px;
+            /* 紅蘿蔔鼠標設定 */
+            cursor: url('https://img.icons8.com/emoji/32/000000/carrot-emoji.png'), auto;
+        }
+
+        /* 確保所有可互動元件（按鈕、連結、輸入框）也是紅蘿蔔 */
+        a, input, .no-box-check, .tool-link, button {
+            cursor: url('https://img.icons8.com/emoji/32/000000/carrot-emoji.png'), pointer !important;
         }
 
         .container {
@@ -53,7 +60,6 @@
             border-radius: 2px;
         }
 
-        /* 標題區域調整 */
         .header-title {
             margin-bottom: 10px;
         }
@@ -137,8 +143,6 @@
             padding: 16px;
             border-radius: var(--border-round);
             margin: 15px 0;
-            cursor: pointer;
-            transition: 0.3s ease;
             border: 1px solid var(--input-border);
             user-select: none;
         }
