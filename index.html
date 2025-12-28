@@ -70,7 +70,15 @@
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--text-main);
-            margin-bottom: 15px;
+            margin-bottom: 5px;
+        }
+
+        #randomQuote {
+            font-size: 0.85rem;
+            color: #b399b3;
+            font-style: italic;
+            margin-bottom: 20px;
+            min-height: 1.2em;
         }
 
         .input-group { text-align: left; margin-bottom: 15px; }
@@ -103,8 +111,6 @@
             outline: none;
         }
 
-        input:focus { border-color: var(--text-main); }
-
         .no-box-check {
             background: #f0e6e0;
             padding: 12px;
@@ -127,9 +133,25 @@
             margin: 15px 0;
             border: 1px solid #eee;
         }
+        
+        .progress-container {
+            width: 90%;
+            height: 10px;
+            background-color: #eee;
+            border-radius: 10px;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: var(--accent);
+            transition: width 0.5s ease;
+        }
+
         .total-needed { 
             color: var(--text-main); 
-            font-size: 2rem; 
+            font-size: 1.8rem; 
             font-weight: 800; 
             margin: 5px 0; 
         }
@@ -178,6 +200,8 @@
         <span class="sub-title">🐾 🐰 生活經驗規劃器 🐰 🐾</span>
     </div>
 
+    <div id="randomQuote">載入中...</div>
+
     <div class="input-group">
         <label>目前等級:</label>
         <input type="number" id="lv" value="50" oninput="calc()">
@@ -204,7 +228,9 @@
     </div>
 
     <div class="input-group">
-        <label style="color:var(--accent);">製作收藏品獲得的經驗：</label>
+        <label style="color:var(--accent);">製作收藏品獲得的經驗：
+            <a href="example2.png" target="_blank" style="color:var(--accent); text-decoration:none; font-size:0.8rem;">📷(範例)</a>
+        </label>
         <span class="sub-label">製作一次收藏品，填寫獲得經驗讓計算更準確一些</span>
         <input type="number" id="totalExp" value="300000" oninput="calc()">
     </div>
@@ -216,8 +242,9 @@
     </div>
 
     <div class="result-box">
-        <div id="resLv" style="color:var(--accent); font-weight:700; font-size:0.85rem;">本級還差: -</div>
-        <div style="color: #b0a49e; font-size: 0.8rem; font-weight: 700; margin-top:5px;">💖 目標區間總需 💖</div>
+        <div id="resLv" style="color:var(--accent); font-weight:700; font-size:0.85rem;">本級進度: -</div>
+        <div class="progress-container"><div id="progressBar" class="progress-bar"></div></div>
+        <div style="color: #b0a49e; font-size: 0.8rem; font-weight: 700;">💖 目標區間總需 💖</div>
         <div id="resTotal" class="total-needed">0 Exp</div>
         <div id="resHint" style="color:#b399b3; font-weight:700; font-size:1.2rem;">等待計算...</div>
     </div>
@@ -237,6 +264,9 @@
 </div>
 
 <script>
+    const quotes = ["今天的材料也要細心研磨喔！", "每一件傑作都源自於對細節的執著。", "工匠的靈魂，藏在每一次敲打中。", "雖然路途遙遠，但升級的火花很美。", "願水晶保佑你的 HQ 成功率！", "製作時別忘了喝杯茶，休息一下吧。", "背包滿了嗎？記得清理一下空間喔！", "收藏品，是工匠實力的最好證明。"];
+    document.getElementById('randomQuote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
+
     const EXP_DATA = {1:300,2:450,3:630,4:970,5:1440,6:1940,7:3000,8:3920,9:4970,10:5900,11:7430,12:8620,13:10200,14:11300,15:13100,16:15200,17:17400,18:19600,19:21900,20:24300,21:27400,22:30600,23:33900,24:37300,25:40800,26:49200,27:54600,28:61900,29:65600,30:68400,31:74000,32:82700,33:88700,34:95000,35:102000,36:113000,37:121000,38:133000,39:142000,40:155000,41:163000,42:171000,43:179000,44:187000,45:195000,46:214000,47:229000,48:244000,49:259000,50:421000,51:500000,52:580000,53:663000,54:749000,55:837000,56:927000,57:1019000,58:1114000,59:1211000,60:1387000,61:1456000,62:1534000,63:1621000,64:1720000,65:1834000,66:1968000,67:2126000,68:2317000,69:2550000,70:2923000,71:3018000,72:3153000,73:3324000,74:3532000,75:3770600,76:4066000,77:4377000,78:4777000,79:5256000,80:5992000,81:6171000,82:6942000,83:7205000,84:7948000,85:8287000,86:9231000,87:9529000,88:10459000,89:10838000,90:13278000,91:13659000,92:15348000,93:15912000,94:17534000,95:18263000,96:20322000,97:20957000,98:22979000,99:23789000};
 
     let isBuffActive = false;
@@ -256,7 +286,6 @@
         
         const rawBase = parseInt(document.getElementById('baseExp').value || 0);
         const finalBase = isBuffActive ? rawBase * 2 : rawBase;
-        
         const manualMakeExp = parseInt(document.getElementById('totalExp').value || 0);
         const totalPerItem = finalBase + manualMakeExp;
         const alreadyDoneCount = parseInt(document.getElementById('alreadyDone').value || 0);
@@ -266,23 +295,23 @@
             let totalNeeded = remainInLv;
             for (let i = lv + 1; i < target; i++) totalNeeded += (EXP_DATA[i] || 0);
             
+            const percent = ((cur / EXP_DATA[lv]) * 100).toFixed(1);
+            document.getElementById('progressBar').style.width = percent + "%";
+
             let actualNeededExp = totalNeeded - (alreadyDoneCount * totalPerItem);
             if (actualNeededExp < 0) actualNeededExp = 0;
 
-            document.getElementById('resLv').innerText = `本級還差: ${remainInLv.toLocaleString()} Exp`;
+            document.getElementById('resLv').innerText = `本級進度: ${percent}% (還差 ${remainInLv.toLocaleString()} Exp)`;
             document.getElementById('resTotal').innerText = `${totalNeeded.toLocaleString()} Exp`;
             
             if (totalPerItem > 0) {
                 const count = Math.ceil(actualNeededExp / totalPerItem);
-                if (actualNeededExp === 0) {
-                    document.getElementById('resHint').innerText = `✨ 已達成目標！不需要再做了 ✨`;
-                } else {
-                    document.getElementById('resHint').innerText = `🎁 還需製作 ${count.toLocaleString()} 個收藏品`;
-                }
+                document.getElementById('resHint').innerText = actualNeededExp === 0 ? `✨ 已達成目標！ ✨` : `🎁 還需製作 ${count.toLocaleString()} 個`;
             } else {
                 document.getElementById('resHint').innerText = `請輸入經驗值`;
             }
         } else {
+            document.getElementById('progressBar').style.width = "0%";
             document.getElementById('resLv').innerText = "等待輸入...";
             document.getElementById('resTotal').innerText = "0 Exp";
             document.getElementById('resHint').innerText = "請確認等級";
