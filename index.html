@@ -53,12 +53,25 @@
             border-radius: 2px;
         }
 
-        h1 { 
-            color: var(--text-main); 
-            font-size: 1.5rem; 
-            margin-top: 0; 
+        /* 標題區域調整 */
+        .header-title {
             margin-bottom: 10px;
-            letter-spacing: 1px;
+        }
+
+        .header-title .ff14-text {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: 3px;
+            margin-bottom: 2px;
+        }
+
+        .header-title .sub-title {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
         }
 
         .quote-box {
@@ -199,7 +212,11 @@
 
 <div class="container">
     <div class="tape"></div>
-    <h1>🐾 🐰 生活經驗規劃器 🐰 🐾</h1>
+    
+    <div class="header-title">
+        <span class="ff14-text">FF14</span>
+        <span class="sub-title">🐾 🐰 生活經驗規劃器 🐰 🐾</span>
+    </div>
     
     <div class="quote-box" id="quote">「願水晶的指引，帶領你走向滿級之路。」</div>
 
