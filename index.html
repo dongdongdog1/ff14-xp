@@ -27,18 +27,16 @@
             min-height: 100vh;
             margin: 0;
             padding: 20px;
-            /* 紅蘿蔔鼠標設定 */
             cursor: url('https://img.icons8.com/emoji/32/000000/carrot-emoji.png'), auto;
         }
 
-        /* 確保所有可互動元件（按鈕、連結、輸入框）也是紅蘿蔔 */
         a, input, .no-box-check, .tool-link, button {
             cursor: url('https://img.icons8.com/emoji/32/000000/carrot-emoji.png'), pointer !important;
         }
 
         .container {
             background-color: var(--card-bg);
-            padding: 40px 30px;
+            padding: 30px 25px;
             border-radius: 30px;
             box-shadow: 0 10px 25px rgba(125,110,102,0.15);
             width: 100%;
@@ -60,44 +58,25 @@
             border-radius: 2px;
         }
 
-        .header-title {
-            margin-bottom: 10px;
-        }
-
         .header-title .ff14-text {
             display: block;
             font-size: 1.8rem;
             font-weight: 800;
             color: var(--text-main);
             letter-spacing: 3px;
-            margin-bottom: 2px;
         }
-
         .header-title .sub-title {
             display: block;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--text-main);
+            margin-bottom: 15px;
         }
 
-        .quote-box {
-            margin-bottom: 25px;
-            padding: 10px;
-            font-size: 0.85rem;
-            color: var(--accent);
-            font-style: italic;
-            border-bottom: 1px dashed var(--input-border);
-            display: inline-block;
-        }
-
-        .input-group {
-            text-align: left;
-            margin-bottom: 18px;
-        }
-
+        .input-group { text-align: left; margin-bottom: 15px; }
         label { 
             color: var(--text-sub); 
-            font-size: 0.95rem; 
+            font-size: 0.9rem; 
             font-weight: 700;
             display: block; 
             margin-bottom: 4px; 
@@ -107,86 +86,69 @@
         .sub-label {
             font-size: 0.75rem;
             color: var(--text-main);
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             margin-left: 8px;
             display: block;
-            font-weight: 500;
-        }
-
-        .example-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: bold;
-            margin-left: 5px;
-            border-bottom: 1px solid var(--accent);
         }
 
         input[type="number"] {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             border-radius: var(--border-round);
             border: 2px solid var(--input-border);
             background-color: var(--input-bg);
             color: var(--text-sub);
-            font-size: 1.1rem;
+            font-size: 1rem;
             box-sizing: border-box;
             outline: none;
-            transition: 0.3s;
         }
 
-        input[type="number"]:focus {
-            border-color: var(--text-main);
-        }
+        input:focus { border-color: var(--text-main); }
 
         .no-box-check {
             background: #f0e6e0;
-            padding: 16px;
+            padding: 12px;
             border-radius: var(--border-round);
-            margin: 15px 0;
+            margin: 10px 0 20px 0;
             border: 1px solid var(--input-border);
             user-select: none;
+            font-size: 0.85rem;
+            font-weight: bold;
         }
-
         .no-box-check.active {
             border-color: var(--text-main);
             background: #fff0f2;
         }
 
-        .no-box-check span { font-weight: bold; }
-
         .result-box {
             background-color: #ffffff;
             border-radius: 20px;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 15px;
+            margin: 15px 0;
             border: 1px solid #eee;
         }
-
         .total-needed { 
             color: var(--text-main); 
-            font-size: 2.2rem; 
+            font-size: 2rem; 
             font-weight: 800; 
             margin: 5px 0; 
         }
 
         .tip {
-            font-size: 0.85rem;
-            color: #9e8e84;
+            font-size: 0.8rem;
+            color: #7d6e66;
             background: #fdfaf8;
-            padding: 15px;
+            padding: 12px;
             border-radius: 15px;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: left;
             border: 1px dashed var(--input-border);
         }
+        .tip b { color: var(--text-main); }
+        .tip-sub { font-size: 0.75rem; color: #b0a49e; margin-top: 5px; display: block; }
 
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
+        .btn-group { display: flex; flex-direction: column; gap: 8px; }
         .tool-link {
             display: block;
             padding: 10px;
@@ -194,123 +156,139 @@
             color: white;
             text-decoration: none;
             border-radius: 12px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            transition: 0.2s;
             box-shadow: 0 4px 0 #76a0b3;
+            text-align: center;
         }
-
         .tool-link.sub-btn {
             background-color: #b0a49e;
             box-shadow: 0 4px 0 #8a7e77;
         }
 
-        .footer { 
-            font-size: 0.8rem; 
-            color: #b0a49e; 
-            margin-top: 25px;
-        }
+        .footer { font-size: 0.75rem; color: #b0a49e; margin-top: 15px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="tape"></div>
-    
     <div class="header-title">
         <span class="ff14-text">FF14</span>
         <span class="sub-title">🐾 🐰 生活經驗規劃器 🐰 🐾</span>
     </div>
-    
-    <div class="quote-box" id="quote">「願水晶的指引，帶領你走向滿級之路。」</div>
 
     <div class="input-group">
         <label>目前等級:</label>
         <input type="number" id="lv" value="50" oninput="calc()">
     </div>
-
     <div class="input-group">
         <label>目前已累積經驗:</label>
         <input type="number" id="cur" value="0" oninput="calc()">
     </div>
-
     <div class="input-group">
         <label>目標等級:</label>
         <input type="number" id="target" value="60" oninput="calc()">
     </div>
 
-    <div class="input-group">
-        <label>單個收藏品基礎經驗:</label>
-        <span class="sub-label">
-            填寫收藏品品質獲得的經驗值 
-            <a href="example.png" target="_blank" class="example-link">📷 (範例圖)</a>
-        </span>
-        <input type="number" id="collExp" value="300000" oninput="calc()">
-    </div>
+    <hr style="border:0; border-top:1px dashed var(--input-border); margin: 20px 0;">
 
     <div id="buffBtn" class="no-box-check" onclick="toggleBuff()">
-        <span>90級以下請點我請用雙倍經驗</span>
+        <span>90級以下請點我使用雙倍經驗</span>
+    </div>
+
+    <div class="input-group">
+        <label>收藏品經驗值:</label>
+        <span class="sub-label">填寫收藏品品質獲得的經驗值 : <a href="example.png" target="_blank" style="color:var(--accent); text-decoration:none;">📷(範例)</a></span>
+        <input type="number" id="baseExp" value="300000" oninput="calc()">
+    </div>
+
+    <div class="input-group">
+        <label style="color:var(--accent);">製作收藏品獲得的經驗：</label>
+        <span class="sub-label">製作一次收藏品，填寫獲得經驗讓計算更準確一些</span>
+        <input type="number" id="totalExp" value="300000" oninput="calc()">
+    </div>
+
+    <div class="input-group">
+        <label>背包已有的收藏品數量 (個):</label>
+        <span class="sub-label">填寫後會自動從目標中扣除數量</span>
+        <input type="number" id="alreadyDone" value="0" oninput="calc()">
     </div>
 
     <div class="result-box">
-        <div id="resLv" style="color:var(--accent); font-weight:700; font-size:0.95rem;">本級還差: -</div>
-        <div style="color: #b0a49e; font-size: 0.85rem; font-weight: 700; margin-top:5px;">💖 目標區間總需 💖</div>
+        <div id="resLv" style="color:var(--accent); font-weight:700; font-size:0.85rem;">本級還差: -</div>
+        <div style="color: #b0a49e; font-size: 0.8rem; font-weight: 700; margin-top:5px;">💖 目標區間總需 💖</div>
         <div id="resTotal" class="total-needed">0 Exp</div>
-        <div id="resHint" style="color:#b399b3; font-weight:700; font-size:1.3rem;">等待計算...</div>
+        <div id="resHint" style="color:#b399b3; font-weight:700; font-size:1.2rem;">等待計算...</div>
     </div>
 
     <div class="tip">
-        💡 <b>溫馨提醒：</b><br>製作過程也會增加經驗值，請將數量減 1-3 個，才不會做太多。
+        <b>💡 使用說明：</b><br>
+        製作過程中還是會增加經驗值，目標數量扣除1-3個，怕做太多浪費時間。<br>
+        <span class="tip-sub">※建議製作一次收藏品填寫完成的經驗值讓計算更精準些</span>
     </div>
 
     <div class="btn-group">
         <a href="https://tnze.yyyy.games/#/welcome" target="_blank" class="tool-link">🛠️ 打開生產模擬器</a>
-        <a href="https://forum.gamer.com.tw/C.php?bsn=17608&snA=26610" target="_blank" class="tool-link sub-btn">📜 繁中服生產練級路線</a>
+        <a href="https://forum.gamer.com.tw/C.php?bsn=17608&snA=26610" target="_blank" class="tool-link sub-btn">📜 繁中服生產製造練級路線</a>
     </div>
 
     <div class="footer">小狗冬製作</div>
 </div>
 
 <script>
-const QUOTES = ["「祈禱這份努力，終將成為艾奧傑亞的助力。」","「今天的採集也辛苦了，去海都喝一杯吧！」","「不管等級多少，你都是最優秀的工匠。」","「收藏品的品質，取決於你對工藝的熱愛。」","「願水晶的指引，帶領你走向滿級之路。」","「休息也是冒險的一部分，搓累了就看看風景吧。」","「每一件裝備，都承載著冒險者的希望。」"];
-const EXP_DATA = {1:300,2:450,3:630,4:970,5:1440,6:1940,7:3000,8:3920,9:4970,10:5900,11:7430,12:8620,13:10200,14:11300,15:13100,16:15200,17:17400,18:19600,19:21900,20:24300,21:27400,22:30600,23:33900,24:37300,25:40800,26:49200,27:54600,28:61900,29:65600,30:68400,31:74000,32:82700,33:88700,34:95000,35:102000,36:113000,37:121000,38:133000,39:142000,40:155000,41:163000,42:171000,43:179000,44:187000,45:195000,46:214000,47:229000,48:244000,49:259000,50:421000,51:500000,52:580000,53:663000,54:749000,55:837000,56:927000,57:1019000,58:1114000,59:1211000,60:1387000,61:1456000,62:1534000,63:1621000,64:1720000,65:1834000,66:1968000,67:2126000,68:2317000,69:2550000,70:2923000,71:3018000,72:3153000,73:3324000,74:3532000,75:3770600,76:4066000,77:4377000,78:4777000,79:5256000,80:5992000,81:6171000,82:6942000,83:7205000,84:7948000,85:8287000,86:9231000,87:9529000,88:10459000,89:10838000,90:13278000,91:13659000,92:15348000,93:15912000,94:17534000,95:18263000,96:20322000,97:20957000,98:22979000,99:23789000};
+    const EXP_DATA = {1:300,2:450,3:630,4:970,5:1440,6:1940,7:3000,8:3920,9:4970,10:5900,11:7430,12:8620,13:10200,14:11300,15:13100,16:15200,17:17400,18:19600,19:21900,20:24300,21:27400,22:30600,23:33900,24:37300,25:40800,26:49200,27:54600,28:61900,29:65600,30:68400,31:74000,32:82700,33:88700,34:95000,35:102000,36:113000,37:121000,38:133000,39:142000,40:155000,41:163000,42:171000,43:179000,44:187000,45:195000,46:214000,47:229000,48:244000,49:259000,50:421000,51:500000,52:580000,53:663000,54:749000,55:837000,56:927000,57:1019000,58:1114000,59:1211000,60:1387000,61:1456000,62:1534000,63:1621000,64:1720000,65:1834000,66:1968000,67:2126000,68:2317000,69:2550000,70:2923000,71:3018000,72:3153000,73:3324000,74:3532000,75:3770600,76:4066000,77:4377000,78:4777000,79:5256000,80:5992000,81:6171000,82:6942000,83:7205000,84:7948000,85:8287000,86:9231000,87:9529000,88:10459000,89:10838000,90:13278000,91:13659000,92:15348000,93:15912000,94:17534000,95:18263000,96:20322000,97:20957000,98:22979000,99:23789000};
 
-let isBuffActive = false;
-document.getElementById('quote').innerText = QUOTES[Math.floor(Math.random() * QUOTES.length)];
+    let isBuffActive = false;
 
-function toggleBuff() {
-    isBuffActive = !isBuffActive;
-    const btn = document.getElementById('buffBtn');
-    btn.classList.toggle('active', isBuffActive);
-    btn.querySelector('span').innerText = isBuffActive ? '✨ 已啟用雙倍經驗 ✨' : '90級以下請點我請用雙倍經驗';
-    calc();
-}
-
-function calc() {
-    const lv = parseInt(document.getElementById('lv').value);
-    const cur = parseInt(document.getElementById('cur').value || 0);
-    const target = parseInt(document.getElementById('target').value);
-    const baseExp = parseInt(document.getElementById('collExp').value || 0);
-    const finalExp = isBuffActive ? baseExp * 2 : baseExp;
-
-    if (EXP_DATA[lv] && target > lv) {
-        let remainInLv = Math.max(0, EXP_DATA[lv] - cur);
-        let totalNeeded = remainInLv;
-        for (let i = lv + 1; i < target; i++) totalNeeded += (EXP_DATA[i] || 0);
-        document.getElementById('resLv').innerText = `本級還差: ${remainInLv.toLocaleString()} Exp`;
-        document.getElementById('resTotal').innerText = `${totalNeeded.toLocaleString()} Exp`;
-        if (finalExp > 0) {
-            const count = Math.ceil(totalNeeded / finalExp);
-            document.getElementById('resHint').innerText = `🎁 約需製作 ${count.toLocaleString()} 個收藏品`;
-        } else { document.getElementById('resHint').innerText = `請輸入經驗值`; }
-    } else {
-        document.getElementById('resLv').innerText = "等待輸入...";
-        document.getElementById('resTotal').innerText = "0 Exp";
-        document.getElementById('resHint').innerText = "請確認等級";
+    function toggleBuff() {
+        isBuffActive = !isBuffActive;
+        const btn = document.getElementById('buffBtn');
+        btn.classList.toggle('active', isBuffActive);
+        btn.querySelector('span').innerText = isBuffActive ? '✨ 已啟用雙倍經驗 ✨' : '90級以下請點我使用雙倍經驗';
+        calc(); 
     }
-}
-calc();
-</script>
 
+    function calc() {
+        const lv = parseInt(document.getElementById('lv').value);
+        const cur = parseInt(document.getElementById('cur').value || 0);
+        const target = parseInt(document.getElementById('target').value);
+        
+        const rawBase = parseInt(document.getElementById('baseExp').value || 0);
+        const finalBase = isBuffActive ? rawBase * 2 : rawBase;
+        
+        const manualMakeExp = parseInt(document.getElementById('totalExp').value || 0);
+        const totalPerItem = finalBase + manualMakeExp;
+        const alreadyDoneCount = parseInt(document.getElementById('alreadyDone').value || 0);
+
+        if (EXP_DATA[lv] && target > lv) {
+            let remainInLv = Math.max(0, EXP_DATA[lv] - cur);
+            let totalNeeded = remainInLv;
+            for (let i = lv + 1; i < target; i++) totalNeeded += (EXP_DATA[i] || 0);
+            
+            let actualNeededExp = totalNeeded - (alreadyDoneCount * totalPerItem);
+            if (actualNeededExp < 0) actualNeededExp = 0;
+
+            document.getElementById('resLv').innerText = `本級還差: ${remainInLv.toLocaleString()} Exp`;
+            document.getElementById('resTotal').innerText = `${totalNeeded.toLocaleString()} Exp`;
+            
+            if (totalPerItem > 0) {
+                const count = Math.ceil(actualNeededExp / totalPerItem);
+                if (actualNeededExp === 0) {
+                    document.getElementById('resHint').innerText = `✨ 已達成目標！不需要再做了 ✨`;
+                } else {
+                    document.getElementById('resHint').innerText = `🎁 還需製作 ${count.toLocaleString()} 個收藏品`;
+                }
+            } else {
+                document.getElementById('resHint').innerText = `請輸入經驗值`;
+            }
+        } else {
+            document.getElementById('resLv').innerText = "等待輸入...";
+            document.getElementById('resTotal').innerText = "0 Exp";
+            document.getElementById('resHint').innerText = "請確認等級";
+        }
+    }
+    calc();
+</script>
 </body>
 </html>
